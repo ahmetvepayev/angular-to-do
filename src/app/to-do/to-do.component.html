@@ -1,1 +1,9 @@
-<app-task></app-task>
+<div>
+    <label for="new-task">Task text: </label>
+    <input type="text" id="new-task" #newTaskText>
+    <button (click)="add(newTaskText.value)">Add task</button>
+</div>
+
+<div *ngFor="let task of tasks">
+    <app-task [taskText]="task.text"></app-task>
+</div>

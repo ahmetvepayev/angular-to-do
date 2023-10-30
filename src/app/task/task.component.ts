@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
+    @Input() public taskText: string = "Default task text.";
+
     public isChecked: boolean = false;
 
     public toggle(){
