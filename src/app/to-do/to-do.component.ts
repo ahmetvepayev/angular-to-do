@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-to-do',
@@ -6,18 +6,5 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: ['./to-do.component.css']
 })
 export class ToDoComponent {
-    public isChecked: boolean = false;
-
-    public toggle(){
-        if (this.isChecked) {
-            this.textCss['text-decoration'] = "line-through";
-        }
-        else{
-            this.textCss['text-decoration'] = "";
-        }
-    }
-
-    public readonly textCss = {
-        "text-decoration": ""
-    }
+    
 }

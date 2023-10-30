@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ToDoComponent } from './to-do/to-do.component';
 import { FormsModule } from '@angular/forms';
+import { TaskComponent } from './task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToDoComponent
+    ToDoComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,

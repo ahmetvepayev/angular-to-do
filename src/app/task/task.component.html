@@ -1,0 +1,6 @@
+<div>
+    <input type="checkbox" id="taskCheckbox" [(ngModel)]="isChecked" (change)="toggle()">
+    <label [ngStyle]="textCss" for="taskCheckbox">Some text.</label>
+</div>
+<p>Box is {{ isChecked ? 'checked' : 'unchecked' }}</p>
+<!-- <button (click)="toggle()">Toggle</button> -->
