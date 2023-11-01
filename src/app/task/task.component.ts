@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Task } from '../task';
+import { EventEmitterService } from '../event-emitter.service';
 
 @Component({
   selector: 'app-task',
@@ -6,9 +8,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
-    @Input() public taskText: string = "Default task text.";
+    
+    constructor(
+        private eventEmitterService: EventEmitterService
+    ) {
+        
+    }
+
+    @Input() public task?: Task;
 
     public isChecked: boolean = false;
+
+    public addSubtaskInputVisible: boolean = false;
 
     public toggle(){
         if (this.isChecked) {
@@ -21,5 +32,14 @@ export class TaskComponent {
 
     public readonly textCss = {
         "text-decoration": ""
+    }
+
+    public clickAddSubtask() {
+        this.addSubtaskInputVisible = true;
+    }
+
+    public submitSubtaskText(text: string) {
+        this.eventEmitterService.addSubTaskButtonClicked.emit({text: text, parentTask: this.task});
+        this.addSubtaskInputVisible = false;
     }
 }

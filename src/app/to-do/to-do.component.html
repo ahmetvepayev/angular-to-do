@@ -1,9 +1,11 @@
 <div>
     <label for="new-task">Task text: </label>
-    <input type="text" id="new-task" #newTaskText>
-    <button (click)="add(newTaskText.value)">Add task</button>
+    <input type="text" id="new-task" #newTaskText (keyup.enter)="addTaskButton.click()">
+    <button #addTaskButton (click)="add(newTaskText.value); newTaskText.value = ''; newTaskText.focus()">Add task</button>
 </div>
 
-<div *ngFor="let task of tasks">
-    <app-task [taskText]="task.text"></app-task>
-</div>
+<ul>
+    <li *ngFor="let task of tasks">
+        <app-task [task]="task"></app-task>
+    </li>
+</ul>

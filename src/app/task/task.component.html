@@ -1,4 +1,12 @@
 <div>
     <input type="checkbox" [(ngModel)]="isChecked" (change)="toggle()">
-    <label [ngStyle]="textCss">{{ taskText }}</label>
+    <label [ngStyle]="textCss">{{ task?.text }}</label>
+    <button *ngIf="!addSubtaskInputVisible" (click)="clickAddSubtask()">+</button>
+    <input type="text" #subtaskTextInput *ngIf="addSubtaskInputVisible" (keyup.enter)="submitSubtaskText(subtaskTextInput.value)">
 </div>
+    
+<ul>
+    <li *ngFor="let subtask of task?.subTasks">
+        <app-task [task]="subtask"></app-task>
+    </li>
+</ul>
