@@ -1,0 +1,44 @@
+ul {
+    list-style: none;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    outline: 0;
+    z-index: 3;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+input {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+label {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 60%;
+    padding-left: 2%;
+    padding-right: 2%;
+    flex-grow: 1;
+    margin: 0;
+}
+
+button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-align: center;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
