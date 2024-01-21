@@ -23,6 +23,8 @@ jobs:
     - name: Build Angular Project
       run: |
         npm run build --prod
+    - run: |
+        ls
 
   deploy:
     runs-on: ubuntu-latest
@@ -36,10 +38,19 @@ jobs:
         ref: main
         path: ./deploy
 
+    - run: |
+        ls
+        
     - name: Update Deploy Folder
       run: |
         rm -rf ./deploy/docs/*
+    - run: |
+        ls
+    - run: |
         cp -r dist/* ./deploy/docs/
+        
+    - run: |
+        ls
 
     - name: Commit and Push Changes
       run: |
