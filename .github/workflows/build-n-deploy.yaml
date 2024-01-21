@@ -34,16 +34,16 @@ jobs:
       with:
         repository: ahmetvepayev/ahmetvepayev.github.io
         ref: main
-        path: ../deploy
+        path: ./deploy
 
     - name: Update Deploy Folder
       run: |
-        rm -rf ../deploy/docs/*
-        cp -r dist/angular-to-do/* ../deploy/docs/
+        rm -rf ./deploy/docs/*
+        cp -r dist/angular-to-do/* ./deploy/docs/
 
     - name: Commit and Push Changes
       run: |
-        cd ../deploy
+        cd ./deploy
         git config user.name "Ahmet Vepayev"
         git config user.email "ahmetwepaogly@gmail.com"
         git add .
