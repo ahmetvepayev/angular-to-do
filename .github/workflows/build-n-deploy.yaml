@@ -53,8 +53,8 @@ jobs:
 
     - name: Update Deploy Folder
       run: |
-        rm -rf ./deploy/docs/*
-        cp -r dist/* ./deploy/docs/
+        rm -rf ./deploy/*
+        cp -r dist/* ./deploy/
         
     - name: Commit and Push Changes
       run: |
