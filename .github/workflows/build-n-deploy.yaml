@@ -36,17 +36,25 @@ jobs:
     needs: build
 
     steps:
+    - run: |
+        ls
+        
     - name: Checkout Deploy Repository
       uses: actions/checkout@v4
       with:
         repository: ahmetvepayev/ahmetvepayev.github.io
         ref: main
         path: ./deploy
+    
+    - run: |
+        ls
 
     - name: Download build artifact
       uses: actions/download-artifact@v4
       with:
         name: dist-artifact
+        path: |
+          dist
 
     - run: |
         ls
