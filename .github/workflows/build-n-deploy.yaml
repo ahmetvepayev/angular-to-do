@@ -36,20 +36,14 @@ jobs:
     needs: build
 
     steps:
-    - run: |
-        ls
-        
     - name: Checkout Deploy Repository
       uses: actions/checkout@v4
       with:
         repository: ahmetvepayev/ahmetvepayev.github.io
         ref: main
         path: ./deploy
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.SECRET_GITHUB_TOKEN }}
     
-    - run: |
-        ls
-
     - name: Download build artifact
       uses: actions/download-artifact@v4
       with:
@@ -57,27 +51,16 @@ jobs:
         path: |
           dist
 
-    - run: |
-        ls
-        
     - name: Update Deploy Folder
       run: |
         rm -rf ./deploy/docs/*
-        
-    - run: |
-        ls
-        
-    - run: |
         cp -r dist/* ./deploy/docs/
         
-    - run: |
-        ls
-
     - name: Commit and Push Changes
       run: |
         cd ./deploy
         git config user.name "Ahmet Vepayev"
         git config user.email "ahmetwepaogly@gmail.com"
         git add .
-        git commit -m "Committed by build-n-deploy"
+        git commit -m "Committed by angular-to-do's build-n-deploy workflow"
         git push
