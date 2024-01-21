@@ -45,6 +45,7 @@ jobs:
         repository: ahmetvepayev/ahmetvepayev.github.io
         ref: main
         path: ./deploy
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - run: |
         ls
