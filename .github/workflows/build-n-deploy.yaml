@@ -1,0 +1,51 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout
+
+    - name: Set up Node.js
+      uses: actions/setup-node
+
+    - name: Install Dependencies
+      run: |
+        npm ci
+
+    - name: Build Angular Project
+      run: |
+        npm run build -- --prod
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - name: Checkout Deploy Repository
+      uses: actions/checkout
+      with:
+        repository: https://github.com/ahmetvepayev/ahmetvepayev.github.io.git
+        ref: main
+        path: ../deploy
+
+    - name: Update Deploy Folder
+      run: |
+        rm -rf ../deploy/docs/*
+        cp -r dist/angular-to-do/* ../deploy/docs/
+
+    - name: Commit and Push Changes
+      run: |
+        cd ../deploy
+        git config user.name "Ahmet Vepayev"
+        git config user.email "ahmetwepaogly@gmail.com"
+        git add .
+        git commit -m "Committed by build-n-deploy"
+        git push
