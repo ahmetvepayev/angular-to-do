@@ -38,10 +38,8 @@ jobs:
 
     - name: Update Deploy Folder
       run: |
-        ls
         rm -rf ./deploy/docs/*
-        ls
-        cp -r dist/angular-to-do/* ./deploy/docs/
+        cp -r dist/* ./deploy/docs/
 
     - name: Commit and Push Changes
       run: |
