@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node
+      uses: actions/setup-node@v4
 
     - name: Install Dependencies
       run: |
@@ -22,7 +22,7 @@ jobs:
 
     - name: Build Angular Project
       run: |
-        npm run build -- --prod
+        npm run build --prod
 
   deploy:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
 
     steps:
     - name: Checkout Deploy Repository
-      uses: actions/checkout
+      uses: actions/checkout@v4
       with:
         repository: https://github.com/ahmetvepayev/ahmetvepayev.github.io.git
         ref: main
