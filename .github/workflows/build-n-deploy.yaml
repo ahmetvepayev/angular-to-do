@@ -32,7 +32,7 @@ jobs:
     - name: Checkout Deploy Repository
       uses: actions/checkout@v4
       with:
-        repository: https://github.com/ahmetvepayev/ahmetvepayev.github.io.git
+        repository: ahmetvepayev/ahmetvepayev.github.io
         ref: main
         path: ../deploy
 
